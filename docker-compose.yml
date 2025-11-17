@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: tpdb
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tpdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: tpapp
+    depends_on:
+      - db
+    environment:
+      DATABASE_JDBC_URL: jdbc:postgresql://db:5432/tpdb?user=user&password=password
+    ports:
+      - "8080:8080"
+
+volumes:
+  dbdata:
