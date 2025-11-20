@@ -22,10 +22,11 @@ jobs:
         run: mvn clean package -DskipTests
 
       # --------------------------
-      # Build Docker image
+      # Build docker image
       # --------------------------
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/spring-app:latest .
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/spring-app:latest .
 
       # --------------------------
       # Login to Docker Hub
@@ -37,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       # --------------------------
-      # Push Docker image
+      # Push image to Docker Hub
       # --------------------------
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/spring-app:latest
