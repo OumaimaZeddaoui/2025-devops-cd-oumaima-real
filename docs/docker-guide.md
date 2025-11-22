@@ -19,7 +19,7 @@ docker run -p 8080:8080 ^
 spring-app
 ---
 
-## 4️⃣ Docker Compose (optionnel)
+## 4️⃣ Docker Compose (optionnel)mais cette resultat avant de fire le vrai lien dans la pr
 Pour lancer l'app + une base PostgreSQL locale :
 
 docker-compose up --build

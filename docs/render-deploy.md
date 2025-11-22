@@ -36,7 +36,7 @@ java -jar target/*.jar
 ## 4️⃣ Tester le déploiement
 Render fournit une URL du type :
 
-https://spring-app-latest-xxxxx.onrender.com
+https://spring-app-latest-5j1z.onrender.com
 
 
 Elle doit afficher la page d’accueil Spring Boot.

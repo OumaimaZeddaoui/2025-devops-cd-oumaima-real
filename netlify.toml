@@ -1,13 +1,8 @@
-# ===============================
-# Netlify configuration file
-# ===============================
-
 [build]
-  command = ""        # Pas de build (projet statique)
-  publish = "docs"    # On déploie le dossier docs/
+  command = ""
+  publish = "docs"
 
-# (Optionnel) Redirection si un jour tu ajoutes un SPA
-# [[redirects]]
-#   from = "/*"
-#   to = "/index.html"
-#   status = 200
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
