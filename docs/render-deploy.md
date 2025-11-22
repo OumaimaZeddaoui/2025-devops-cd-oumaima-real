@@ -1,24 +1,18 @@
-# 🚀 Déploiement sur Render – Guide Complet
+# 🚀 Déploiement Render – Guide Complet
 
 ## 1️⃣ Préparer le projet
-
 Avant de déployer, assurez-vous que votre projet contient :
-
-- Dockerfile
-- docker-compose.yml (optionnel)
-- Code Spring Boot
-- CI GitHub Actions (push → build image Docker)
+- Un Dockerfile fonctionnel
+- Le code Spring Boot
+- Une image publiée automatiquement par GitHub Actions (CI)
 
 ---
 
 ## 2️⃣ Créer le Web Service Render
-
 1. Aller sur : https://dashboard.render.com  
 2. Cliquer **New → Web Service**
 3. Choisir **Build & Deploy from GitHub**
-4. Sélectionner le repository :
-
-2025-devops-cd-oumaima-real
+4. Sélectionner le repo : `2025-devops-cd-oumaima-real`
 
 ---
 
@@ -33,61 +27,51 @@ Avant de déployer, assurez-vous que votre projet contient :
 java -jar target/*.jar
 
 ### 🔧 Environment
-
-- Environment = Docker  
-- Render détecte automatiquement votre Dockerfile  
-- Port utilisé par Render : `${PORT}`  
+- Environment = Docker
+- Render détecte automatiquement le Dockerfile
+- Le port utilisé est `${PORT}` (ajouté automatiquement par Render)
 
 ---
 
-## 4️⃣ Tester l’application en ligne
-
-Une fois le déploiement terminé, Render vous donnera une URL.
-
-Exemple :
+## 4️⃣ Tester le déploiement
+Render fournit une URL du type :
 
 https://spring-app-latest-xxxxx.onrender.com
 
-Cette URL doit afficher la page Spring Boot.
+
+Elle doit afficher la page d’accueil Spring Boot.
 
 ---
 
-## 5️⃣ Vérifier les Logs Render
-
-Aller sur **Logs** → vérifier que l’application démarre.
+## 5️⃣ Vérifier les logs
+Aller dans **Logs** sur Render :
 
 Vous devez voir :
+- `Tomcat started on port`
+- `Started TpCd2024Application`
 
-Tomcat started on port ${PORT}
-Started TpCd2024Application
-
-Si erreur, vérifier :
-
-- Variables d’environnement  
-- Dockerfile  
-- Connexion base de données  
+Si erreurs → vérifier :
+- Dockerfile
+- Variables d’environnement
+- Base de données
 
 ---
 
 ## 6️⃣ Déploiement Automatique (CD)
 
-À chaque :
+Chaque :
 
 git push origin main
 
-Alors :
-
-1. GitHub Actions reconstruit l’image Docker  
-2. L’image est poussée sur Docker Hub  
-3. Render redéploie automatiquement  
+➜ GitHub Actions reconstruit l’image Docker  
+➜ L’image est poussée sur Docker Hub  
+➜ Render redéploie automatiquement  
 
 ---
 
 ## ✔️ Résultat Final
-
-Votre projet est :
-
-- 🟢 Buildé automatiquement  
-- 🟢 Poussé sur Docker Hub  
-- 🟢 Déployé sur Render  
-- 🟢 Accessible en ligne publiquement  
+Votre application Spring Boot est :
+- 🟢 Buildée automatiquement
+- 🟢 Poussée sur Docker Hub
+- 🟢 Déployée sur Render
+- 🟢 Accessible publiquement
